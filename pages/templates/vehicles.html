@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Maintenance App | Vehicles</title>
+</head>
+<body>
+    <nav>
+        <a href="http://127.0.0.1:8000">Home</a>
+        <a href="http://127.0.0.1:8000/sign_in/">Sign In</a>
+        <a href="http://127.0.0.1:8000/sign_up/">Sign Up</a>
+    </nav>
+    <h2>Welcome, {{ username }}</h2>
+    <h2>Your Vehicles</h2>
+    <hr>
+    {% for vehicle in vehicles %}
+    <div>
+        <h3>Vehicle Details</h3>
+        <p>Oil Change: {{ vehicle.oil_change_date }}</p>
+        <p>Miles: {{ vehicle.oil_change_miles }}</p>
+        <p>Brake Pads: {{ vehicle.brake_pads_date }}</p>
+        <p>Miles: {{ vehicle.brake_pads_miles }}</p>
+        <p>Air Filter: {{ vehicle.air_filter_date }}</p>
+        <p>Battery Check: {{ vehicle.battery_check_date }}</p>
+    </div>
+    {% endfor %}
+    <form action="\new_vehicle\" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="username" value="{{ username }}">
+        <button type="submit">Add new vehicle</button>
+    </form>
+</body>
+</html>

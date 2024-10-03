@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Maintenance App | Sign Up</title>
+</head>
+<body>
+    <nav>
+        <a href="http://127.0.0.1:8000">Home</a>
+        <a href="http://127.0.0.1:8000/sign_in/">Sign In</a>
+        <a href="http://127.0.0.1:8000/sign_up/">Sign Up</a>
+    </nav>
+    <h2>Sign Up</h2>
+    <hr>
+    <form action="/vehicles/" method="post">
+        {% csrf_token %}
+        <div><input type="text" name="username" placeholder="Username"></div>
+        <div><input type="password" name="password" placeholder="Password"></div>
+        <button type="submit">Enter</button>
+    </form>
+</body>
+</html>
