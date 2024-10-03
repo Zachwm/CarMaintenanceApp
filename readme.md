@@ -6,7 +6,7 @@
 
 **Project Goals**: To learn django and how to have an app work with a database
 
-**Demo Video**:[YouTube](https://youtu.be/DMI5R1FSOjk)
+**Demo Video**: [YouTube](https://youtu.be/DMI5R1FSOjk)
 
 ## Instructions for Build and Use
 
