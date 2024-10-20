@@ -11,12 +11,18 @@
         <a href="http://127.0.0.1:8000/sign_in/">Sign In</a>
         <a href="http://127.0.0.1:8000/sign_up/">Sign Up</a>
     </nav>
-    <h2>Welcome, {{ username }}</h2>
+    <h2>Welcome, {{ name }}</h2>
     <h2>Add a new vehicle</h2>
     <hr>
     <form action="\adding_new_vehicle\" method="post">
         {% csrf_token %}
-        <input type="hidden" name="username" value="{{ username }}">
+        <input type="hidden" name="uid" value="{{ uid }}">
+        <div id="car">
+            Manufacturer: <input type="text" name="manufacturer">
+            Model: <input type="text" name="model">
+            Year: <input type="number" name="year">
+        </div>
+        <br>
         <div id="oil_change">
             Oil Change: <input type="date" name="oil_change_date">
             Miles: <input type="number" name="oil_change_miles">

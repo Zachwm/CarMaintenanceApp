@@ -25,7 +25,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sign_in/', views.sign_in, name='sign_in'),
     path('sign_up/', views.sign_up, name='sign_up'),
-    path('vehicles/', views.vehicles, name='vehicles'),
     path('new_vehicle/', views.new_vehicle, name='new_vehicle'),
-    path('adding_new_vehicle/', views.adding_new_vehicle, name='adding_new_vehicle')
+    path('adding_new_vehicle/', views.adding_new_vehicle, name='adding_new_vehicle'),
+    path('logout', views.logout, name='logout'),
+    path('forgotPassword', views.forgotPassword, name='forgotPassword'),
+    path('postsignup/', views.postsignup, name='postsignup'),
+    path('postsignin/', views.postsignin, name='postsignin'),
+    path('deleteaccount/', views.deleteaccount, name='deleteaccount'),
 ]

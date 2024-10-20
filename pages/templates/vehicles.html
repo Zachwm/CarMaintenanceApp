@@ -10,25 +10,42 @@
         <a href="http://127.0.0.1:8000">Home</a>
         <a href="http://127.0.0.1:8000/sign_in/">Sign In</a>
         <a href="http://127.0.0.1:8000/sign_up/">Sign Up</a>
+        <button type="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
+        <form method="POST" action="{% url 'deleteaccount' %}">
+            {% csrf_token %}
+            <input type="hidden" name="uid" value="{{ uid }}">
+            <button type="submit">Delete Account</button>
+        </form>
     </nav>
-    <h2>Welcome, {{ username }}</h2>
+
+    <h2>Welcome, {{ name }}</h2>
     <h2>Your Vehicles</h2>
     <hr>
-    {% for vehicle in vehicles %}
-    <div>
-        <h3>Vehicle Details</h3>
-        <p>Oil Change: {{ vehicle.oil_change_date }}</p>
-        <p>Miles: {{ vehicle.oil_change_miles }}</p>
-        <p>Brake Pads: {{ vehicle.brake_pads_date }}</p>
-        <p>Miles: {{ vehicle.brake_pads_miles }}</p>
-        <p>Air Filter: {{ vehicle.air_filter_date }}</p>
-        <p>Battery Check: {{ vehicle.battery_check_date }}</p>
-    </div>
-    {% endfor %}
-    <form action="\new_vehicle\" method="post">
+
+    {% if vehicles %}
+        {% for key, vehicle in vehicles.items %}
+        <div>
+            <h3>Vehicle Details</h3>
+            <p>Manufacturer: {{ vehicle.manufacturer }}</p>
+            <p>Model: {{ vehicle.model }}</p>
+            <p>Year: {{ vehicle.year }}</p>
+            <p>Oil Change Date: {{ vehicle.oil_change_date }}</p>
+            <p>Oil Change Miles: {{ vehicle.oil_change_miles }}</p>
+            <p>Brake Pads Date: {{ vehicle.brake_pads_date }}</p>
+            <p>Brake Pads Miles: {{ vehicle.brake_pads_miles }}</p>
+            <p>Air Filter Date: {{ vehicle.air_filter_date }}</p>
+            <p>Battery Check Date: {{ vehicle.battery_check_date }}</p>
+        </div>
+        <hr>
+        {% endfor %}
+    {% else %}
+        <p>No vehicles added yet.</p>
+    {% endif %}
+
+    <form action="/new_vehicle/" method="post">
         {% csrf_token %}
-        <input type="hidden" name="username" value="{{ username }}">
-        <button type="submit">Add new vehicle</button>
+        <input type="hidden" name="uid" value="{{ uid }}">
+        <button type="submit">Add New Vehicle</button>
     </form>
 </body>
 </html>
