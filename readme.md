@@ -6,7 +6,7 @@
 
 **Project Goals**: To learn django and how to have an app work with a database
 
-**Demo Video**: [YouTube](https://youtu.be/DMI5R1FSOjk)
+**Demo Video**: [YouTube](https://youtu.be/uZqAlE_Y4SE)
 
 ## Instructions for Build and Use
 
@@ -36,13 +36,15 @@ To recreate the development environment, you need the following software and/or 
 I found these websites useful in developing this software:
 
 * [YouTube](https://www.youtube.com/watch?v=rHux0gMZ3Eg)
+* [YouTube](https://www.youtube.com/watch?v=8wa4AHGKUJM&list=PLhPDb5zFmGR2VfXiN2y-1V0qdRik7Cc0K)
 * [ChatGPT](https://chatgpt.com/)
 
 ## Future Work
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] Implement the database to actually store the information on your vehicle
+* [x] Implement the database to actually store the information on your vehicle
 * [ ] Add google accounts to allow for easier authentication
-* [ ] Allow for the website to deal with multiple vehicles per user
+* [x] Allow for the website to deal with multiple vehicles per user
 * [ ] Add CSS to make the webapp look better
+* [ ] Add Vehicles to being stored within (currently only have accounts and their info)
