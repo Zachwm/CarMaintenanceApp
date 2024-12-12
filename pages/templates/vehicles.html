@@ -23,7 +23,7 @@
     <hr>
 
     {% if vehicles %}
-        {% for key, vehicle in vehicles.items %}
+        {% for vehicle in vehicles %}
         <div>
             <h3>Vehicle Details</h3>
             <p>Manufacturer: {{ vehicle.manufacturer }}</p>

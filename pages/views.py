@@ -37,8 +37,14 @@ def postsignin(request):
 
         uid = user['localId']
         name = database.child(uid).child('name').get().val()
+        vehicles = []
+        vehicles_data = database.child(uid).child('vehicles').get()
 
-        return render(request, 'vehicles.html', {'uid': uid, 'name': name})
+        if vehicles_data.each():
+            for vehicle in vehicles_data.each():
+                vehicles.append(vehicle.val())
+
+        return render(request, 'vehicles.html', {'uid': uid, 'name': name, 'vehicles': vehicles})
     else:
         return render(request, 'sign_in.html')
     
