@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import pyrebase
 from django.contrib import auth
+from django.shortcuts import redirect
 
 config={
     "apiKey": "AIzaSyDKBnDqbSJ7DTDjriTSon4rCDQiCatiKhs",
@@ -55,9 +56,10 @@ def postsignup(request):
 
     try:
         user = authe.create_user_with_email_and_password(username, password)
-    except:
-        message = "Error creating user"
+    except Exception as e:
+        message = f"Error creating user: {str(e)}"
         return render(request, "sign_up.html", {"messg": message})
+
     
     uid = user['localId']
 
@@ -108,15 +110,21 @@ def adding_new_vehicle(request):
         vehicles_ref = database.child(uid).child('vehicles')
         vehicles_ref.push(vehicle_data)
 
-        return render(request, 'vehicles.html', {'uid': uid, 'name': name})
+        vehicles_data = database.child(uid).child('vehicles').get()
+        vehicles = []
+
+        if vehicles_data.each():
+            for vehicle in vehicles_data.each():
+                vehicles.append(vehicle.val())
+
+        return render(request, 'vehicles.html', {'uid': uid, 'name': name, 'vehicles': vehicles})
     else:
         return render(request, 'sign_in.html')
 
     
 def logout(request):
-    if request.user.is_authenticated:
-        auth.logout(request)
-    return render(request, 'home.html')
+    return redirect('home')
+
 
 def deleteaccount(request):
     uid = request.POST.get('uid')
@@ -126,4 +134,4 @@ def deleteaccount(request):
     user = authe.current_user
     authe.delete_user_account(user['idToken']) 
     
-    return render(request, 'home.html')
+    return redirect('home')
