@@ -47,4 +47,4 @@ The following items I plan to fix, improve, and/or add to this project in the fu
 * [x] Allow for the website to deal with multiple vehicles per user
 * [ ] Add CSS to make the webapp look better
 * [x] Add Vehicles to being stored within (currently only have accounts and their info)
-* [ ] Allow the user to see vehicles without having to re-sign in saving there authentication from page to page
+* [x] Allow the user to see vehicles without having to re-sign in saving there authentication from page to page
